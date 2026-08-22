@@ -4,6 +4,8 @@
     - !<own> a27e354b-6fff-44cd-9d75-51b75ac0eced
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
+    - !<own> e2368388-a807-4b70-b20f-2b4b68085bdb
+    - !<own> a0a993cf-94bc-4550-9d94-e053de879f89
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -187,6 +189,56 @@
   ScriptTypes:
     "":
       {}
+- !<ScreenTransform/1f8c6529-33b6-4594-9866-903812b43516>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  EnableDebugRender: false
+  Anchor:
+    left: -0.866920
+    bottom: -0.859545
+    right: 0.886636
+    top: -0.697164
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
+- !<SceneObject/2ce14824-1ebf-4685-adb3-09ae7dfb9ee5>
+  PrefabRemaps:
+    []
+  Name: Lyrics Text
+  Enabled: true
+  Layers: 1048576
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1f8c6529-33b6-4594-9866-903812b43516
+    - !<own> a7f96385-7ab4-46c7-8629-14cb66badf09
 - !<ScriptComponent/4c985a78-54a2-405c-9199-a9c0b7b94178>
   PrefabRemaps:
     []
@@ -203,6 +255,70 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/535e8346-7e1f-4421-aa0f-ffa62b06ccee>
+  PrefabRemaps:
+    []
+  Name: Lyrics Controller
+  Enabled: true
+  ScriptAsset: !<reference> 8395e33f-9f1d-4f7c-9df9-bedf002c080b
+  ScriptInputsDefault:
+    timeOffset: true
+    fadeInDuration: true
+    fadeOutDuration: true
+    enablePopAnimation: true
+    playAudioOnStart: true
+    debugMode: true
+    baseColor: true
+    outlineColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      audioComponent: !<reference.AudioComponent> b96ace62-6ea7-493b-b8cd-20f84f40165e
+      lyricsText: !<reference.Text> a7f96385-7ab4-46c7-8629-14cb66badf09
+      lyricsScreenTransform: !<reference.ScreenTransform> 1f8c6529-33b6-4594-9866-903812b43516
+      totalLoopDuration: !<float> 184.000000
+      timeOffset: !<float> 0.000000
+      fadeInDuration: 0.350000
+      fadeOutDuration: 0.350000
+      enablePopAnimation: true
+      playAudioOnStart: true
+      debugMode: true
+      baseColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      outlineColor: !<Vec4> {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/7d24eb9d-726d-419b-95c6-c86560bf0986>
+  PrefabRemaps:
+    []
+  Name: BG Music
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b96ace62-6ea7-493b-b8cd-20f84f40165e
+- !<SceneObject/a0a993cf-94bc-4550-9d94-e053de879f89>
+  PrefabRemaps:
+    []
+  Name: Sounds and Sfx
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 7d24eb9d-726d-419b-95c6-c86560bf0986
+  Components:
+    []
 - !<SceneObject/a27e354b-6fff-44cd-9d75-51b75ac0eced>
   PrefabRemaps:
     []
@@ -216,8 +332,228 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> e8cb8ed9-65c9-4ca1-9464-367ed0d060f4
+    - !<own> e0f52f69-c141-4a55-ac4e-dc9822774517
   Components:
     []
+- !<Text/a7f96385-7ab4-46c7-8629-14cb66badf09>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: ""
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableRichText: false
+  SizeToFit: true
+  FontSize: 48.000000
+  FontSource: !<reference> 0114b3fa-1311-4a09-b77c-3b73a39d3eb4
+  PreferredStyle: Heavy Italic
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  DebugRenderLayoutRect: false
+  OverflowVertical: Overflow
+  OverflowHorizontal: Truncate
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: true
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Canvas/b5ae299f-9964-461f-994e-bf0465b5a04e>
+  PrefabRemaps:
+    []
+  Name: Canvas
+  Enabled: true
+  UnitType: Points
+  SortingType: Hierarchy
+  OffsetUnit: World
+  LayoutRect:
+    left: -15.000000
+    bottom: -20.000000
+    right: 15.000000
+    top: 20.000000
+  DebugRenderLayoutRect: false
+  BasisResolution: {x: 1080.000000, y: 1920.000000}
+- !<AudioComponent/b96ace62-6ea7-493b-b8cd-20f84f40165e>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> cd3c9d2a-3b44-4a7d-adba-ac697b32a174
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
+- !<ScreenRegionComponent/bd3e95b0-2fc4-4d91-b93d-bc26305bf8d3>
+  PrefabRemaps:
+    []
+  Name: Screen Region
+  Enabled: true
+  ScreenRegionType: SafeRender
+  ResizeWithKeyboard: false
+- !<ScreenTransform/dbf5a240-2ba1-4866-895d-bfef1d850220>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  EnableDebugRender: false
+  Anchor:
+    left: -1.000000
+    bottom: -0.570000
+    right: 1.000000
+    top: 0.850000
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
+- !<SceneObject/e0f52f69-c141-4a55-ac4e-dc9822774517>
+  PrefabRemaps:
+    []
+  Name: Lyrics Controller
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 535e8346-7e1f-4421-aa0f-ffa62b06ccee
+- !<Camera/e23387ae-abd9-44c5-9636-6df8f7042470>
+  PrefabRemaps:
+    []
+  Name: Camera
+  Enabled: true
+  renderLayer: 1048576
+  MipmapLevel: 0
+  RenderOrder: 1
+  Size: 20.000000
+  Near: -1.000000
+  Far: 200.000000
+  Fov: 63.541019
+  ClearColor: !<CameraClearColor>
+    Mode: None
+    Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  ClearDepth: !<CameraClearDepth>
+    Mode: Value
+    Value: 1.000000
+    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  Aspect: 1.000000
+  CameraType: Orthographic
+  DepthMode: Regular
+  DeviceProperty: All
+  AspectPreset: Custom
+  OitLayers: NoOit
+  RenderTarget: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
+  DepthStencilRenderTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  MaskTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  RayTracing: !<reference> 00000000-0000-0000-0000-000000000000
+  DevicePropertiesSource: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/e2368388-a807-4b70-b20f-2b4b68085bdb>
+  PrefabRemaps:
+    []
+  Name: Orthographic Camera
+  Enabled: true
+  Layers: 1048576
+  LocalTransform: !<TransformEntity>
+    Position: {x: -120.000000, y: 0.000000, z: 40.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> fe42b36e-fd2e-4e7e-92f0-ffa9e4983687
+  Components:
+    - !<own> e23387ae-abd9-44c5-9636-6df8f7042470
+    - !<own> b5ae299f-9964-461f-994e-bf0465b5a04e
 - !<SceneObject/e8cb8ed9-65c9-4ca1-9464-367ed0d060f4>
   PrefabRemaps:
     - 119a527f-1ea8-4a7b-8f09-10c7d1d76424: b0802990-d992-4374-5898-976a42c77241
@@ -255,7 +591,7 @@
     - f9a17c21-a79e-498a-9eec-79f87993b783: 8529b7b4-4cbc-4d15-4229-c5125c99af79
     - fc7ccc9a-6d6a-4c5d-a8ee-4e0efea8f1fe: 6701b74a-4fe1-40e5-68f6-376eba819ce8
   Name: TweenManager
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -267,3 +603,19 @@
   Components:
     - !<own> 4c985a78-54a2-405c-9199-a9c0b7b94178
     - !<own> 16561f93-168a-4e2a-bbc7-fa133ed9d7b9
+- !<SceneObject/fe42b36e-fd2e-4e7e-92f0-ffa9e4983687>
+  PrefabRemaps:
+    []
+  Name: Safe frame Region
+  Enabled: true
+  Layers: 1048576
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2ce14824-1ebf-4685-adb3-09ae7dfb9ee5
+  Components:
+    - !<own> dbf5a240-2ba1-4866-895d-bfef1d850220
+    - !<own> bd3e95b0-2fc4-4d91-b93d-bc26305bf8d3
