@@ -38,6 +38,9 @@
     lyricsText: false
     outlineColor: false
     playAudioOnStart: false
+    popExitScale: false
+    popPeakScale: false
+    popStartScale: false
     timeOffset: false
     totalLoopDuration: false
   ScriptTypesHidden:
@@ -57,6 +60,9 @@
       fadeInDuration: 0.350000
       fadeOutDuration: 0.350000
       enablePopAnimation: true
+      popStartScale: 0.800000
+      popPeakScale: 1.150000
+      popExitScale: 0.900000
       playAudioOnStart: true
       debugMode: true
       baseColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
