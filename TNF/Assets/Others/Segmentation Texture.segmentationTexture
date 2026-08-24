@@ -1,0 +1,7 @@
+- !<SegmentationTexture/a4a6a3eb-3a25-45e8-838f-61d380f71b46>
+  PackagePath: ""
+  SegmentationType: PortraitSegmentation
+  InvertMask: false
+  Feathering: 0.500000
+  RefineEdge: true
+  TrackingScope: !<reference> 00000000-0000-0000-0000-000000000000

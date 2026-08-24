@@ -1,0 +1,103 @@
+- !<Material/23a2c504-fbe5-4eb1-999d-f8fdaa343746>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 1e0dd85c-b56a-41ea-8abb-679a21b6048b
+- !<PassInfo/1e0dd85c-b56a-41ea-8abb-679a21b6048b>
+  CachedProperties:
+    - alpha:
+        typeIdx: 1
+        value: 0.000000
+    - selfIllum:
+        typeIdx: 1
+        value: 0.000000
+  DepthWrite: true
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    - ENABLE_BASE_TEX
+    - ENABLE_DIFFUSE_LIGHTING
+    - ENABLE_DIRECT_LIGHTS
+    - ENABLE_ENVIRONMENT_MAP
+    - ENABLE_LIGHTING
+    - ENABLE_SPECULAR_LIGHTING
+    - ENABLE_TONE_MAPPING
+    - ENABLE_VERTEX_COLOR_NONE
+    - baseTexUV 0
+    - emissiveTexUV 0
+    - materialParamsTexUV 0
+    - normalTexUV 0
+    - opacityTexUV 0
+    - rimColorTexUV 0
+    - NODE_38_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_221_DROPLIST_ITEM 0
+  BlendMode: Disabled
+  Properties:
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    baseColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    baseTex:
+      typeIdx: 9
+      value:
+        id: cf880076-2c32-4221-8625-9e5f4334b5b7
+        sampler:
+          filteringMode: Bilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: ClampToEdge
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    baseTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    materialParamsTex:
+      typeIdx: 9
+      value:
+        id: 8797de2d-60f8-425d-8c93-961efaf9cef7
+        sampler:
+          filteringMode: Bilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: ClampToEdge
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    materialParamsTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    metallic:
+      typeIdx: 1
+      value: 0.000000
+    roughness:
+      typeIdx: 1
+      value: 1.000000
+    uv2Offset:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    uv2Scale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    uv3Offset:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    uv3Scale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+  Pass: !<reference> d3fe8c10-78fd-4a25-a924-2cc1ada5519f
