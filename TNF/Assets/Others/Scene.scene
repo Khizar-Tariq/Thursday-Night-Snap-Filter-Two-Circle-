@@ -24,7 +24,7 @@
   PrefabRemaps:
     []
   Name: Camera Object
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 40.000000}
@@ -205,6 +205,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> c6f2aab7-4ed2-4fcc-ab42-fbc0a2c2d4fa
+    - !<own> 1ac409aa-2c57-40f0-9942-d86b73b0c27c
   Components:
     - !<own> 922cad46-f1f7-4ea3-baaf-df53c534e66a
     - !<own> 5cad6767-054f-4c2b-b557-ecb3d2d7d773
@@ -224,6 +225,22 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/1ac409aa-2c57-40f0-9942-d86b73b0c27c>
+  PrefabRemaps:
+    []
+  Name: FireWorls
+  Enabled: true
+  Layers: 2
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: -0.000000, z: 329.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ba62be99-74f8-4c7c-ba91-bc2840704aaa
+    - !<own> 980ebb79-7091-4e7c-9cc3-978fea050eee
 - !<SceneObject/1c5bdb80-c21c-4968-a608-588263fcf24f>
   PrefabRemaps:
     []
@@ -315,7 +332,7 @@
   Name: Image
   Enabled: true
   RenderOrder: 0
-  StretchMode: Fit
+  StretchMode: FillAndCut
   VerticalAlignment: Center
   HorizontalAlignment: Center
   MeshShadowMode: None
@@ -692,6 +709,25 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<Image/980ebb79-7091-4e7c-9cc3-978fea050eee>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 55a55fc0-b0cc-46e3-955a-e4a51eff7cba
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/a0a993cf-94bc-4550-9d94-e053de879f89>
   PrefabRemaps:
     []
@@ -839,6 +875,40 @@
   MaxDistance: 100.000000
   EnableDirectivityEffect: false
   EnablePositionEffect: false
+- !<ScreenTransform/ba62be99-74f8-4c7c-ba91-bc2840704aaa>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 329.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  EnableDebugRender: false
+  Anchor:
+    left: -1.276141
+    bottom: -0.098285
+    right: 0.156781
+    top: 1.320638
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
 - !<ScreenRegionComponent/bd3e95b0-2fc4-4d91-b93d-bc26305bf8d3>
   PrefabRemaps:
     []
@@ -849,7 +919,7 @@
 - !<SceneObject/c6f2aab7-4ed2-4fcc-ab42-fbc0a2c2d4fa>
   PrefabRemaps:
     []
-  Name: Screen Image
+  Name: BG
   Enabled: true
   Layers: 2
   LocalTransform: !<TransformEntity>
@@ -1013,7 +1083,7 @@
   PrefabRemaps:
     []
   Name: Logo
-  Enabled: false
+  Enabled: true
   Layers: 1048576
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1131,10 +1201,10 @@
   ForceBasic: true
   EnableDebugRender: false
   Anchor:
-    left: -1.000000
-    bottom: -1.000000
-    right: 1.000000
-    top: 1.000000
+    left: -0.329500
+    bottom: 0.440527
+    right: 0.329531
+    top: 0.854198
   Offset:
     left: 0.000000
     bottom: 0.000000
