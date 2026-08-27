@@ -1,0 +1,51 @@
+- !<AssetImportMetadata/e3e69207-2189-4a35-9e73-ee42cef168b5>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 52b0f956-9f83-4165-82c9-a21794406ea3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/52b0f956-9f83-4165-82c9-a21794406ea3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: e2504c5d-bcae-4860-855f-d34be824466a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    lightsTexture: false
+    loop: false
+    textureChangeSpeed: false
+    wheelLights: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - wheelLights: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      lightsTexture: !<reference.Texture[]>
+        []
+      textureChangeSpeed: !<float> 0.000000
+      loop: true
+  ScriptTypes:
+    -
+      {}
