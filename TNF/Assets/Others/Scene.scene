@@ -264,16 +264,15 @@
   Enabled: true
   ScriptAsset: !<reference> 51fb3371-a682-487d-83a1-436c3db22412
   ScriptInputsDefault:
-    frontCameraObjects: true
-    backCameraObjects: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       frontCameraObjects: !<reference.SceneObject[]>
-        []
+        - !<reference> 2ce14824-1ebf-4685-adb3-09ae7dfb9ee5
       backCameraObjects: !<reference.SceneObject[]>
-        []
+        - !<reference> f95d4938-a042-4c9d-8594-fc10b089b9d7
       segmentedCamera: !<reference.Camera> 5e825860-5ced-4a28-95f5-b68b2c41e197
       segmentedTexture: !<reference.Texture> a4a6a3eb-3a25-45e8-838f-61d380f71b46
       delayTweenObject: !<reference.SceneObject> e8cb8ed9-65c9-4ca1-9464-367ed0d060f4
@@ -873,7 +872,7 @@
   PrefabRemaps:
     []
   Name: Scripts
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1005,6 +1004,40 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<ScreenTransform/a866d411-b7e5-4623-8835-c3b6094f9627>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  EnableDebugRender: false
+  Anchor:
+    left: -0.289605
+    bottom: -0.370425
+    right: 0.354758
+    top: 0.492317
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
 - !<ScriptComponent/abde168b-6e4a-4074-b325-22c7e91460be>
   PrefabRemaps:
     []
@@ -1461,6 +1494,41 @@
     top: 20.000000
   DebugRenderLayoutRect: false
   BasisResolution: {x: 1080.000000, y: 1920.000000}
+- !<SceneObject/f95d4938-a042-4c9d-8594-fc10b089b9d7>
+  PrefabRemaps:
+    []
+  Name: Swap Camera Hint
+  Enabled: true
+  Layers: 1048576
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a866d411-b7e5-4623-8835-c3b6094f9627
+    - !<own> f973b1ca-662e-4ebd-8527-42c620df6c10
+- !<Image/f973b1ca-662e-4ebd-8527-42c620df6c10>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 6c78f342-b6ce-4482-afe4-56b9763e318f
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/fe42b36e-fd2e-4e7e-92f0-ffa9e4983687>
   PrefabRemaps:
     []
@@ -1474,6 +1542,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 2ce14824-1ebf-4685-adb3-09ae7dfb9ee5
+    - !<own> f95d4938-a042-4c9d-8594-fc10b089b9d7
   Components:
     - !<own> dbf5a240-2ba1-4866-895d-bfef1d850220
     - !<own> bd3e95b0-2fc4-4d91-b93d-bc26305bf8d3
