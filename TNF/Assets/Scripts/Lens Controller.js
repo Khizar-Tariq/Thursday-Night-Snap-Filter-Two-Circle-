@@ -15,21 +15,15 @@
 // @ui {"widget":"group_start", "label":"Fireworks Animation & Delay"}
 // @input SceneObject delayTweenObject {"label":"Delay Tween Object"}
 // @input Component.Image fireWorksImage {"label":"Fireworks Image"}
+// @input Component.AudioComponent fireWorksAudio {"label":"Fireworks Audio"}
 // @ui {"widget":"group_end"}
 
 var isFrontCamera = true;
 var isFaceFound = false;
 var hasPlayedFireworks = false;
 
-function checkCamera() {
-    if (global.scene && typeof global.scene.getCameraType === "function") {
-        return global.scene.getCameraType() !== "back";
-    }
-    return true;
-}
-
 function init() {
-    isFrontCamera = checkCamera();
+    isFrontCamera = global.scene.getCameraType() !== "back";
     updateCameraObjects(isFrontCamera);
     updateSegmentationMask();
 
@@ -39,31 +33,16 @@ function init() {
 }
 
 function updateCameraObjects(isFront) {
-    if (script.frontCameraObjects) {
-        for (var i = 0; i < script.frontCameraObjects.length; i++) {
-            if (script.frontCameraObjects[i]) {
-                script.frontCameraObjects[i].enabled = isFront;
-            }
-        }
+    for (var i = 0; i < script.frontCameraObjects.length; i++) {
+        script.frontCameraObjects[i].enabled = isFront;
     }
-    if (script.backCameraObjects) {
-        for (var j = 0; j < script.backCameraObjects.length; j++) {
-            if (script.backCameraObjects[j]) {
-                script.backCameraObjects[j].enabled = !isFront;
-            }
-        }
+    for (var j = 0; j < script.backCameraObjects.length; j++) {
+        script.backCameraObjects[j].enabled = !isFront;
     }
 }
 
 function updateSegmentationMask() {
-    if (!script.segmentedCamera) {
-        return;
-    }
-    if (isFrontCamera && isFaceFound) {
-        script.segmentedCamera.maskTexture = script.segmentedTexture;
-    } else {
-        script.segmentedCamera.maskTexture = null;
-    }
+    script.segmentedCamera.maskTexture = (isFrontCamera && isFaceFound) ? script.segmentedTexture : null;
 }
 
 function onCameraFront() {
@@ -80,11 +59,8 @@ function onCameraBack() {
     isFrontCamera = false;
     updateCameraObjects(false);
     updateSegmentationMask();
-
-    // If fireworks tween was queued, stop it when switching to back camera
-    if (global.tweenManager && script.delayTweenObject) {
-        global.tweenManager.stopTween(script.delayTweenObject, "fireWork Delay");
-    }
+    global.tweenManager.stopTween(script.delayTweenObject, "fireWork Delay");
+    script.fireWorksAudio.stop(false);
 }
 
 function onFaceFound() {
@@ -98,30 +74,16 @@ function onFaceLost() {
 }
 
 function playFireworksDelayTween() {
-    if (hasPlayedFireworks || !isFrontCamera) {
-        return;
-    }
-
-    if (global.tweenManager && script.delayTweenObject) {
+    if (!hasPlayedFireworks && isFrontCamera) {
         hasPlayedFireworks = true;
         global.tweenManager.startTween(script.delayTweenObject, "fireWork Delay", onFireworksDelayComplete);
     }
 }
 
 function onFireworksDelayComplete() {
-    // Double check we are still on front camera before playing animation
-    if (!isFrontCamera || !script.fireWorksImage) {
-        return;
-    }
-
-    var pass = script.fireWorksImage.mainPass;
-    if (!pass) return;
-
-    var tex = pass.baseTex || pass.mainTex;
-    if (tex && tex.play) {
-        tex.play(1, 0);
-    } else if (pass.baseTex && pass.baseTex.control) {
-        pass.baseTex.control.play(1, 0);
+    if (isFrontCamera) {
+        script.fireWorksAudio.play(1);
+        script.fireWorksImage.mainPass.baseTex.control.play(1, 0);
     }
 }
 
@@ -131,4 +93,5 @@ script.createEvent("CameraFrontEvent").bind(onCameraFront);
 script.createEvent("CameraBackEvent").bind(onCameraBack);
 script.createEvent("FaceFoundEvent").bind(onFaceFound);
 script.createEvent("FaceLostEvent").bind(onFaceLost);
-
+
+

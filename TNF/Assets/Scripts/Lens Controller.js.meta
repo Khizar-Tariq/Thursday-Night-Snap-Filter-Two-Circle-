@@ -30,6 +30,7 @@
   ScriptInputsHidden:
     backCameraObjects: false
     delayTweenObject: false
+    fireWorksAudio: false
     fireWorksImage: false
     frontCameraObjects: false
     segmentedCamera: false
@@ -51,6 +52,7 @@
       segmentedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       delayTweenObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       fireWorksImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      fireWorksAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

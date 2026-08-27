@@ -278,6 +278,7 @@
       segmentedTexture: !<reference.Texture> a4a6a3eb-3a25-45e8-838f-61d380f71b46
       delayTweenObject: !<reference.SceneObject> e8cb8ed9-65c9-4ca1-9464-367ed0d060f4
       fireWorksImage: !<reference.Image> 980ebb79-7091-4e7c-9cc3-978fea050eee
+      fireWorksAudio: !<reference.AudioComponent> bccb61ea-e66c-43aa-ba23-515f15b3bb06
   ScriptTypes:
     "":
       {}
@@ -1000,6 +1001,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 7d24eb9d-726d-419b-95c6-c86560bf0986
+    - !<own> c86797b5-e2bf-43a6-93b7-0505992d2cbb
   Components:
     []
 - !<SceneObject/a27e354b-6fff-44cd-9d75-51b75ac0eced>
@@ -1299,6 +1301,23 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<AudioComponent/bccb61ea-e66c-43aa-ba23-515f15b3bb06>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> a8f498e4-2d81-4b58-8480-72869af3ff21
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<ScreenRegionComponent/bd3e95b0-2fc4-4d91-b93d-bc26305bf8d3>
   PrefabRemaps:
     []
@@ -1322,6 +1341,21 @@
   Components:
     - !<own> e06bddf1-c16a-4eb7-90ef-bcc4b1c2d7e3
     - !<own> 3688d26a-f26b-4462-affc-52e03b80ab51
+- !<SceneObject/c86797b5-e2bf-43a6-93b7-0505992d2cbb>
+  PrefabRemaps:
+    []
+  Name: Fire Works
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bccb61ea-e66c-43aa-ba23-515f15b3bb06
 - !<ScreenTransform/cba9c335-0a85-4d30-83b8-51866529c8af>
   PrefabRemaps:
     []

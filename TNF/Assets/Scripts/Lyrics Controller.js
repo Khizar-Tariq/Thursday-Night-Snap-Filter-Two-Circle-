@@ -29,47 +29,73 @@
  */
 var lyricsData = [
     // --- Verse 1 ---
-    { start: 11.70, end: 14.60, text: "BEEN A HARD DAY'S WORK,\nGRINDIN' ME TO THE BONE" },
-    { start: 14.70, end: 17.65, text: "I'M COVERED IN DIRT,\nGOTTA FEND FOR MY OWN" },
-    { start: 17.77, end: 20.40, text: "BEEN BURNIN' THESE CANDLES\nAT BOTH ENDS" },
-    { start: 20.53, end: 23.30, text: "BUT A HANDFUL OF DOLLARS\nIS ALL I GET" },
+    { start: 11.70, end: 13.15, text: "BEEN A HARD DAY'S WORK" },
+    { start: 13.15, end: 14.60, text: "GRINDIN' ME TO THE BONE" },
+    { start: 14.70, end: 16.15, text: "I'M COVERED IN DIRT" },
+    { start: 16.15, end: 17.65, text: "GOTTA FEND FOR MY OWN" },
+    { start: 17.77, end: 19.10, text: "BEEN BURNIN' THESE CANDLES" },
+    { start: 19.10, end: 20.40, text: "AT BOTH ENDS" },
+    { start: 20.53, end: 21.90, text: "BUT A HANDFUL OF DOLLARS" },
+    { start: 21.90, end: 23.30, text: "IS ALL I GET" },
 
     // --- Pre-Chorus 1 ---
-    { start: 23.40, end: 26.50, text: "I SAID MONDAY, TUESDAY,\nI'VE BEEN DRY" },
-    { start: 26.60, end: 29.60, text: "I BARELY MADE IT\nOUT ALIVE" },
-    { start: 29.70, end: 32.50, text: "WEDNESDAY ALMOST\nLOST MY MIND" },
-    { start: 32.60, end: 36.40, text: "BUT EVERY THURSDAY NIGHT,\nWE GON' LET 'EM KNOW" },
+    { start: 23.40, end: 24.95, text: "I SAID MONDAY, TUESDAY" },
+    { start: 24.95, end: 26.50, text: "I'VE BEEN DRY" },
+    { start: 26.60, end: 28.10, text: "I BARELY MADE IT" },
+    { start: 28.10, end: 29.60, text: "OUT ALIVE" },
+    { start: 29.70, end: 31.10, text: "WEDNESDAY ALMOST" },
+    { start: 31.10, end: 32.50, text: "LOST MY MIND" },
+    { start: 32.60, end: 34.50, text: "BUT EVERY THURSDAY NIGHT" },
+    { start: 34.50, end: 36.40, text: "WE GON' LET 'EM KNOW" },
 
     // --- Chorus 1 ---
-    { start: 36.50, end: 39.50, text: "WHEN WE COME TO TOWN,\nWE GON' LET 'EM KNOW" },
-    { start: 39.63, end: 42.10, text: "WE DON'T PLAY AROUND,\nWE GON' LET 'EM KNOW" },
-    { start: 42.23, end: 44.95, text: "DO EVERYTHING TO WIN,\nAND SOMETHING'S GOTTA GIVE" },
-    { start: 45.07, end: 48.30, text: "IF YOU DON'T KNOW WHAT IT IS,\nWE GON' LET 'EM KNOW" },
-    { start: 48.40, end: 51.30, text: "WHEN WE COME TO TOWN,\nWE GON' LET 'EM KNOW" },
+    { start: 36.50, end: 38.00, text: "WHEN WE COME TO TOWN" },
+    { start: 38.00, end: 39.50, text: "WE GON' LET 'EM KNOW" },
+    { start: 39.63, end: 40.85, text: "WE DON'T PLAY AROUND" },
+    { start: 40.85, end: 42.10, text: "WE GON' LET 'EM KNOW" },
+    { start: 42.23, end: 43.60, text: "DO EVERYTHING TO WIN" },
+    { start: 43.60, end: 44.95, text: "AND SOMETHING'S GOTTA GIVE" },
+    { start: 45.07, end: 46.70, text: "IF YOU DON'T KNOW WHAT IT IS" },
+    { start: 46.70, end: 48.30, text: "WE GON' LET 'EM KNOW" },
+    { start: 48.40, end: 49.85, text: "WHEN WE COME TO TOWN" },
+    { start: 49.85, end: 51.30, text: "WE GON' LET 'EM KNOW" },
     { start: 51.40, end: 52.70, text: "EVERY SINGLE DOWN, WE" },
     { start: 52.80, end: 53.95, text: "GON' LET 'EM KNOW" },
-    { start: 54.07, end: 56.80, text: "DO EVERYTHING TO WIN,\nAND SOMETHING'S GOTTA GIVE" },
-    { start: 56.90, end: 60.00, text: "IF YOU DON'T KNOW WHAT IT IS,\nWE GON' LET 'EM KNOW" },
+    { start: 54.07, end: 55.45, text: "DO EVERYTHING TO WIN" },
+    { start: 55.45, end: 56.80, text: "AND SOMETHING'S GOTTA GIVE" },
+    { start: 56.90, end: 58.45, text: "IF YOU DON'T KNOW WHAT IT IS" },
+    { start: 58.45, end: 60.00, text: "WE GON' LET 'EM KNOW" },
 
     // --- Verse 2 ---
-    { start: 62.13, end: 64.75, text: "IT'S THURSDAY NIGHT,\nWE'VE BEEN OUT ON THE ROAD" },
+    { start: 62.13, end: 63.45, text: "IT'S THURSDAY NIGHT" },
+    { start: 63.45, end: 64.75, text: "WE'VE BEEN OUT ON THE ROAD" },
     { start: 64.83, end: 66.70, text: "SOMEBODY HIT THOSE LIGHTS" },
     { start: 66.80, end: 67.90, text: "LET'S GET READY TO ROLL" },
     { start: 67.97, end: 69.40, text: "WHEN THE FANS GO LOUD" },
-    { start: 69.50, end: 73.50, text: "THE BAND GOES CRAZY,\nWHEN THE DRUMLINE ROLLS: ALL IN" },
+    { start: 69.50, end: 71.50, text: "THE BAND GOES CRAZY" },
+    { start: 71.50, end: 73.50, text: "WHEN THE DRUMLINE ROLLS: ALL IN" },
 
     // --- Pre-Chorus 2 ---
-    { start: 73.67, end: 76.90, text: "I SAID MONDAY, TUESDAY,\nI'VE BEEN DRY" },
-    { start: 77.00, end: 79.95, text: "I BARELY MADE IT\nOUT ALIVE" },
-    { start: 80.03, end: 82.85, text: "WEDNESDAY ALMOST\nLOST MY MIND" },
-    { start: 82.97, end: 86.75, text: "BUT EVERY THURSDAY NIGHT,\nWE GON' LET 'EM KNOW" },
+    { start: 73.67, end: 75.30, text: "I SAID MONDAY, TUESDAY" },
+    { start: 75.30, end: 76.90, text: "I'VE BEEN DRY" },
+    { start: 77.00, end: 78.50, text: "I BARELY MADE IT" },
+    { start: 78.50, end: 79.95, text: "OUT ALIVE" },
+    { start: 80.03, end: 81.45, text: "WEDNESDAY ALMOST" },
+    { start: 81.45, end: 82.85, text: "LOST MY MIND" },
+    { start: 82.97, end: 84.85, text: "BUT EVERY THURSDAY NIGHT" },
+    { start: 84.85, end: 86.75, text: "WE GON' LET 'EM KNOW" },
 
     // --- Chorus 2 ---
-    { start: 86.87, end: 89.50, text: "WHEN WE COME TO TOWN,\nWE GON' LET 'EM KNOW" },
-    { start: 89.63, end: 92.50, text: "AND WE DON'T PLAY AROUND,\nWE GON' LET 'EM KNOW" },
-    { start: 92.63, end: 95.35, text: "DO EVERYTHING TO WIN,\nTHEN SOMETHING'S GOTTA GIVE" },
-    { start: 95.47, end: 98.60, text: "IF YOU DON'T KNOW WHAT IT IS,\nWE GON' LET 'EM KNOW" },
-    { start: 98.73, end: 101.60, text: "WHEN WE COME TO TOWN,\nWE GON' LET 'EM KNOW" },
+    { start: 86.87, end: 88.20, text: "WHEN WE COME TO TOWN" },
+    { start: 88.20, end: 89.50, text: "WE GON' LET 'EM KNOW" },
+    { start: 89.63, end: 91.05, text: "AND WE DON'T PLAY AROUND" },
+    { start: 91.05, end: 92.50, text: "WE GON' LET 'EM KNOW" },
+    { start: 92.63, end: 94.00, text: "DO EVERYTHING TO WIN" },
+    { start: 94.00, end: 95.35, text: "THEN SOMETHING'S GOTTA GIVE" },
+    { start: 95.47, end: 97.05, text: "IF YOU DON'T KNOW WHAT IT IS" },
+    { start: 97.05, end: 98.60, text: "WE GON' LET 'EM KNOW" },
+    { start: 98.73, end: 100.15, text: "WHEN WE COME TO TOWN" },
+    { start: 100.15, end: 101.60, text: "WE GON' LET 'EM KNOW" },
     { start: 101.73, end: 103.10, text: "EVERY SINGLE DOWN, WE" },
     { start: 103.17, end: 104.40, text: "GON' LET 'EM KNOW" },
     { start: 104.47, end: 105.80, text: "DO EVERYTHING TO WIN" },
@@ -82,32 +108,45 @@ var lyricsData = [
     { start: 116.97, end: 120.00, text: "GO ON LET 'EM KNOW" },
 
     // --- Pre-Chorus 3 ---
-    { start: 120.97, end: 124.25, text: "I SAID MONDAY, TUESDAY,\nI'VE BEEN DRY" },
-    { start: 124.37, end: 127.60, text: "I BARELY MADE IT\nOUT ALIVE" },
-    { start: 127.73, end: 130.30, text: "WEDNESDAY ALMOST\nLOST MY MIND" },
-    { start: 130.40, end: 134.20, text: "BUT EVERY THURSDAY NIGHT,\nWE GON' LET 'EM KNOW" },
+    { start: 120.97, end: 122.60, text: "I SAID MONDAY, TUESDAY" },
+    { start: 122.60, end: 124.25, text: "I'VE BEEN DRY" },
+    { start: 124.37, end: 126.00, text: "I BARELY MADE IT" },
+    { start: 126.00, end: 127.60, text: "OUT ALIVE" },
+    { start: 127.73, end: 129.00, text: "WEDNESDAY ALMOST" },
+    { start: 129.00, end: 130.30, text: "LOST MY MIND" },
+    { start: 130.40, end: 132.30, text: "BUT EVERY THURSDAY NIGHT" },
+    { start: 132.30, end: 134.20, text: "WE GON' LET 'EM KNOW" },
 
     // --- Final Chorus ---
-    { start: 134.30, end: 136.90, text: "WHEN WE COME TO TOWN,\nWE GON' LET 'EM KNOW" },
-    { start: 137.03, end: 139.95, text: "AND WE DON'T PLAY AROUND,\nWE GON' LET 'EM KNOW" },
-    { start: 140.10, end: 142.75, text: "DO EVERYTHING TO WIN,\nIF SOMETHING'S GOTTA GIVE" },
-    { start: 142.87, end: 146.05, text: "IF YOU DON'T KNOW WHAT IT IS,\nWE GON' LET 'EM KNOW" },
-    { start: 146.17, end: 149.05, text: "WHEN WE COME TO TOWN,\nWE GON' LET 'EM KNOW" },
-    { start: 149.17, end: 151.75, text: "EVERY SINGLE DOWN,\nWE GON' LET 'EM KNOW" },
-    { start: 151.87, end: 154.60, text: "DO EVERYTHING TO WIN,\nIF SOMETHING'S GOTTA GIVE" },
-    { start: 154.70, end: 158.00, text: "IF YOU DON'T KNOW WHAT IT IS,\nWE GON' LET 'EM KNOW" },
+    { start: 134.30, end: 135.60, text: "WHEN WE COME TO TOWN" },
+    { start: 135.60, end: 136.90, text: "WE GON' LET 'EM KNOW" },
+    { start: 137.03, end: 138.50, text: "AND WE DON'T PLAY AROUND" },
+    { start: 138.50, end: 139.95, text: "WE GON' LET 'EM KNOW" },
+    { start: 140.10, end: 141.45, text: "DO EVERYTHING TO WIN" },
+    { start: 141.45, end: 142.75, text: "IF SOMETHING'S GOTTA GIVE" },
+    { start: 142.87, end: 144.45, text: "IF YOU DON'T KNOW WHAT IT IS" },
+    { start: 144.45, end: 146.05, text: "WE GON' LET 'EM KNOW" },
+    { start: 146.17, end: 147.60, text: "WHEN WE COME TO TOWN" },
+    { start: 147.60, end: 149.05, text: "WE GON' LET 'EM KNOW" },
+    { start: 149.17, end: 150.45, text: "EVERY SINGLE DOWN" },
+    { start: 150.45, end: 151.75, text: "WE GON' LET 'EM KNOW" },
+    { start: 151.87, end: 153.25, text: "DO EVERYTHING TO WIN" },
+    { start: 153.25, end: 154.60, text: "IF SOMETHING'S GOTTA GIVE" },
+    { start: 154.70, end: 156.35, text: "IF YOU DON'T KNOW WHAT IT IS" },
+    { start: 156.35, end: 158.00, text: "WE GON' LET 'EM KNOW" },
 
     // --- Outro ---
     { start: 161.50, end: 164.20, text: "WHOA..." },
     { start: 164.43, end: 166.90, text: "GO ON AND LET 'EM KNOW" },
-    { start: 167.03, end: 172.00, text: "WHOA,\nWE GON' LET 'EM KNOW" }
+    { start: 167.03, end: 169.50, text: "WHOA" },
+    { start: 169.50, end: 172.00, text: "WE GON' LET 'EM KNOW" }
 ];
 
 var audioPosition = 0.0;   // tracks elapsed playback time
 var targetTransform = null;
-var initialScale  = new vec3(1.0, 1.0, 1.0);
+var initialScale = new vec3(1.0, 1.0, 1.0);
 var currentLyricIndex = -1;
-var isRestarting  = false;
+var isRestarting = false;
 var lastDebugAlpha = -1;
 
 // --- Easing functions for smooth pop & fade animations ---
@@ -172,9 +211,9 @@ function init() {
 }
 
 function startPlayback() {
-    audioPosition     = 0.0;
+    audioPosition = 0.0;
     currentLyricIndex = -1;
-    isRestarting      = false;
+    isRestarting = false;
     print("[DBG] startPlayback() called");
 
     if (script.audioComponent && script.playAudioOnStart) {
@@ -200,7 +239,7 @@ function applyVisuals(alpha, scaleFactor) {
     if (script.debugMode && Math.abs(alpha - lastDebugAlpha) > 0.05) {
         lastDebugAlpha = alpha;
         print("[DBG] applyVisuals alpha=" + alpha.toFixed(2) + " scale=" + scaleFactor.toFixed(2)
-              + " | textFill=" + (script.lyricsText && script.lyricsText.textFill ? "OK" : "NULL"));
+            + " | textFill=" + (script.lyricsText && script.lyricsText.textFill ? "OK" : "NULL"));
     }
 
     if (script.lyricsText && script.lyricsText.textFill) {
@@ -281,7 +320,7 @@ function onUpdate() {
         }
 
         var lyricDuration = activeLyric.end - activeLyric.start;
-        var lyricElapsed  = loopTime - activeLyric.start;
+        var lyricElapsed = loopTime - activeLyric.start;
         var fadeIn = Math.min(script.fadeInDuration, lyricDuration * 0.4);
         var fadeOut = Math.min(script.fadeOutDuration, lyricDuration * 0.4);
 
@@ -294,7 +333,7 @@ function onUpdate() {
             alpha = smoothStep(0.0, 1.0, progressIn);
             if (script.enablePopAnimation) {
                 var startS = (script.popStartScale !== undefined) ? script.popStartScale : 0.80;
-                var peakS  = (script.popPeakScale !== undefined)  ? script.popPeakScale : 1.15;
+                var peakS = (script.popPeakScale !== undefined) ? script.popPeakScale : 1.15;
                 // Calculate overshoot factor relative to base 1.0
                 var overshoot = Math.max(0.0, peakS - 1.0) * 8.0;
                 var easeVal = easeOutBackCustom(progressIn, overshoot);
