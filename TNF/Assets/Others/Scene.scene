@@ -191,6 +191,21 @@
     - !<own> 817efa26-4bbe-4fec-89e1-1989e4079ded
   Components:
     - !<own> 536da870-b45d-4735-a9d9-5ee05767eb38
+- !<SceneObject/08c81e0a-46a6-4bc7-921e-dec6ded2deb8>
+  PrefabRemaps:
+    []
+  Name: Lens Controller
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 18491b71-0df0-4c72-aa91-418efde944fe
 - !<SceneObject/0d877ed9-7fc0-49ab-a0ea-5ef99818bacf>
   PrefabRemaps:
     []
@@ -222,6 +237,7 @@
     - !<own> c6f2aab7-4ed2-4fcc-ab42-fbc0a2c2d4fa
     - !<own> 0d877ed9-7fc0-49ab-a0ea-5ef99818bacf
     - !<own> 1ac409aa-2c57-40f0-9942-d86b73b0c27c
+    - !<own> 79e74136-5a4d-481a-8475-4116a8c65174
   Components:
     - !<own> 922cad46-f1f7-4ea3-baaf-df53c534e66a
     - !<own> 5cad6767-054f-4c2b-b557-ecb3d2d7d773
@@ -241,11 +257,35 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/18491b71-0df0-4c72-aa91-418efde944fe>
+  PrefabRemaps:
+    []
+  Name: Lens Controller
+  Enabled: true
+  ScriptAsset: !<reference> 51fb3371-a682-487d-83a1-436c3db22412
+  ScriptInputsDefault:
+    frontCameraObjects: true
+    backCameraObjects: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      frontCameraObjects: !<reference.SceneObject[]>
+        []
+      backCameraObjects: !<reference.SceneObject[]>
+        []
+      segmentedCamera: !<reference.Camera> 5e825860-5ced-4a28-95f5-b68b2c41e197
+      segmentedTexture: !<reference.Texture> a4a6a3eb-3a25-45e8-838f-61d380f71b46
+      delayTweenObject: !<reference.SceneObject> e8cb8ed9-65c9-4ca1-9464-367ed0d060f4
+      fireWorksImage: !<reference.Image> 980ebb79-7091-4e7c-9cc3-978fea050eee
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/1ac409aa-2c57-40f0-9942-d86b73b0c27c>
   PrefabRemaps:
     []
   Name: FireWorls
-  Enabled: false
+  Enabled: true
   Layers: 2
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -372,6 +412,40 @@
     []
   Components:
     - !<own> 8c7cf3ba-4587-4b47-8905-bb071f2a5058
+- !<ScreenTransform/4c287fc1-a9d4-4245-b9bf-4fc111ad8d66>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 27.000002}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  EnableDebugRender: false
+  Anchor:
+    left: 0.362918
+    bottom: 0.339745
+    right: 1.678504
+    top: 1.603105
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
 - !<ScriptComponent/4c985a78-54a2-405c-9199-a9c0b7b94178>
   PrefabRemaps:
     []
@@ -533,6 +607,22 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/79e74136-5a4d-481a-8475-4116a8c65174>
+  PrefabRemaps:
+    []
+  Name: FireWorls 1
+  Enabled: true
+  Layers: 2
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: -0.000000, z: 27.000002}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4c287fc1-a9d4-4245-b9bf-4fc111ad8d66
+    - !<own> bb99a8a3-4b24-4f66-aa24-6536d62cb3dc
 - !<SceneObject/7d24eb9d-726d-419b-95c6-c86560bf0986>
   PrefabRemaps:
     []
@@ -783,7 +873,7 @@
   PrefabRemaps:
     []
   Name: Scripts
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -792,6 +882,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> e8cb8ed9-65c9-4ca1-9464-367ed0d060f4
+    - !<own> 08c81e0a-46a6-4bc7-921e-dec6ded2deb8
     - !<own> e0f52f69-c141-4a55-ac4e-dc9822774517
     - !<own> e1389278-2353-4e23-8053-61d5521638a3
   Components:
@@ -1022,6 +1113,25 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<Image/bb99a8a3-4b24-4f66-aa24-6536d62cb3dc>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 55a55fc0-b0cc-46e3-955a-e4a51eff7cba
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScreenRegionComponent/bd3e95b0-2fc4-4d91-b93d-bc26305bf8d3>
   PrefabRemaps:
     []
@@ -1167,7 +1277,7 @@
   PrefabRemaps:
     []
   Name: Lyrics Controller
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1193,6 +1303,50 @@
     []
   Components:
     - !<own> abde168b-6e4a-4074-b325-22c7e91460be
+- !<ScriptComponent/e16a4296-2329-4ef3-8033-f9219377db0d>
+  PrefabRemaps:
+    []
+  Name: TweenTransform
+  Enabled: true
+  ScriptAsset: !<reference> c0359509-9eb1-4630-b6c4-e6f477d226ba
+  ScriptInputsDefault:
+    sceneObjectReference: true
+    loopType: true
+    type: true
+    movementType: true
+    startInput: true
+    endInput: true
+    from: true
+    to: true
+    offset: true
+    additive: true
+    delay: true
+    easingFunction: true
+    easingType: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      sceneObjectReference: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      tweenName: fireWork Delay
+      playAutomatically: false
+      loopType: 0
+      type: 0
+      movementType: 0
+      startInput: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      endInput: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      from: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      to: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      offset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      additive: false
+      time: !<float> 2.000000
+      delay: !<float> 0.000000
+      isLocal: false
+      easingFunction: Quadratic
+      easingType: Out
+  ScriptTypes:
+    "":
+      {}
 - !<Camera/e23387ae-abd9-44c5-9636-6df8f7042470>
   PrefabRemaps:
     []
@@ -1279,7 +1433,7 @@
     - f9a17c21-a79e-498a-9eec-79f87993b783: 8529b7b4-4cbc-4d15-4229-c5125c99af79
     - fc7ccc9a-6d6a-4c5d-a8ee-4e0efea8f1fe: 6701b74a-4fe1-40e5-68f6-376eba819ce8
   Name: TweenManager
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1291,6 +1445,7 @@
   Components:
     - !<own> 4c985a78-54a2-405c-9199-a9c0b7b94178
     - !<own> 16561f93-168a-4e2a-bbc7-fa133ed9d7b9
+    - !<own> e16a4296-2329-4ef3-8033-f9219377db0d
 - !<Canvas/eef9248c-396c-45ea-bafc-17f98b4940e5>
   PrefabRemaps:
     []

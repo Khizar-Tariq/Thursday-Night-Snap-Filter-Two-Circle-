@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/6d227c25-2835-4d05-b70a-dcce418d9bee>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 51fb3371-a682-487d-83a1-436c3db22412
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 51fb3371-a682-487d-83a1-436c3db22412
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 7b566760-92f8-4732-bec8-e212dcbe6e5e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/7b566760-92f8-4732-bec8-e212dcbe6e5e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 9968d152-3d54-4962-9b51-cff31f5aa1d5
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    backCameraObjects: false
+    delayTweenObject: false
+    fireWorksImage: false
+    frontCameraObjects: false
+    segmentedCamera: false
+    segmentedTexture: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - frontCameraObjects: !<reference.SceneObject[]>
+        []
+      backCameraObjects: !<reference.SceneObject[]>
+        []
+      segmentedCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      segmentedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      delayTweenObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      fireWorksImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

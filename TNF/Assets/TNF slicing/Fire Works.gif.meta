@@ -15,7 +15,7 @@
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<AnimatedTextureData/cfd64b55-c5ae-4c86-823a-a10aa76f1d48>
-  AutoPlay: true
+  AutoPlay: false
   Reversed: false
   PingPong: false
   CurrentSequence: default
