@@ -25,8 +25,9 @@ metaInfo:
     - Back
   lensClientCompatibilities:
     - Mobile
+    - CameraKit
   platformBundlesEnabled: false
-  iconHash: ""
+  iconHash: e30d7c7549be4553aa0c033e8d12953f
   videoPreviewHash: ""
   fromTemplateName: Default
   fromTemplateUrl: Lens Studio 5.23.0.26072806

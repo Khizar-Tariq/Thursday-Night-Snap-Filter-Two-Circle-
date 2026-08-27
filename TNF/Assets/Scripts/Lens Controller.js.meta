@@ -28,6 +28,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    alternativeLogo: false
     backCameraObjects: false
     delayTweenObject: false
     fireWorksAudio: false
@@ -50,6 +51,7 @@
         []
       segmentedCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
       segmentedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      alternativeLogo: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       delayTweenObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       fireWorksImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
       fireWorksAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000

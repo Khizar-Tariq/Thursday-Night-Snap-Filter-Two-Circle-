@@ -1,5 +1,6 @@
 // @input Component.AudioComponent audioComponent
 // @input Component.Text lyricsText
+// @input Component.Text lyricsText2
 // @input Component.ScreenTransform lyricsScreenTransform
 // @input float totalLoopDuration = 184.0
 // @input float timeOffset = 0.0 {"label":"Time Offset (sec) +early / -late"}
@@ -21,6 +22,16 @@
 // @ui {"widget":"group_start", "label":"Colors"}
 // @input vec4 baseColor = {1.0, 1.0, 1.0, 1.0} {"widget":"color"}
 // @input vec4 outlineColor = {0.0, 0.0, 0.0, 1.0} {"widget":"color"}
+// @ui {"widget":"group_end"}
+
+// @ui {"widget":"group_start", "label":"Lyrics Visibilty Controller"}
+// @input SceneObject lyricsBtn
+// @input SceneObject handsHint
+// @input Component.InteractionComponent lyricsInteraction
+// @input Component.Image lyricsImage
+// @input Asset.Texture lyricsOn
+// @input Asset.Texture lyricsOff
+// @input float buttonLeadTime = 1.0 {"label":"Button Lead Time (sec)"}
 // @ui {"widget":"group_end"}
 
 /**
@@ -148,6 +159,9 @@ var initialScale = new vec3(1.0, 1.0, 1.0);
 var currentLyricIndex = -1;
 var isRestarting = false;
 var lastDebugAlpha = -1;
+var areLyricsEnabled = true;
+var hasEnabledLyricsBtn = false;
+var hasClickedLyricsBtn = false;
 
 // --- Easing functions for smooth pop & fade animations ---
 function easeOutBackCustom(x, overshoot) {
@@ -165,17 +179,51 @@ function smoothStep(min, max, x) {
     return t * t * (3.0 - 2.0 * t);
 }
 
+function updateLyricsBtnTexture() {
+    if (!script.lyricsImage) return;
+
+    var tex = areLyricsEnabled ? script.lyricsOn : script.lyricsOff;
+    if (tex) {
+        script.lyricsImage.mainPass.baseTex = tex;
+    }
+}
+
+function setLyricsText(textStr) {
+    if (script.lyricsText) {
+        script.lyricsText.text = textStr;
+    }
+    if (script.lyricsText2) {
+        script.lyricsText2.text = textStr;
+    }
+}
+
+function onToggleLyrics() {
+    // On first click, dismiss handsHint tween
+    if (!hasClickedLyricsBtn) {
+        hasClickedLyricsBtn = true;
+        if (global.tweenManager && script.handsHint) {
+            global.tweenManager.stopTween(script.handsHint, "Fade In");
+            global.tweenManager.startTween(script.handsHint, "Fade Out");
+        }
+    }
+
+    areLyricsEnabled = !areLyricsEnabled;
+    updateLyricsBtnTexture();
+
+    if (!areLyricsEnabled) {
+        setLyricsText("");
+        applyVisuals(0.0, 1.0);
+    }
+}
+
 // --- Initialization ---
 function init() {
     // Auto-detect Text Component if not assigned
-    if (!script.lyricsText) {
+    if (!script.lyricsText && !script.lyricsText2) {
         script.lyricsText = script.getSceneObject().getComponent("Component.Text");
     }
-    print("[DBG] lyricsText: " + (script.lyricsText ? "FOUND" : "NULL - assign in Inspector!"));
-    if (script.lyricsText) {
-        print("[DBG] textFill: " + (script.lyricsText.textFill ? "OK" : "NULL"));
-        print("[DBG] text visible: " + script.lyricsText.enabled);
-    }
+    print("[DBG] lyricsText: " + (script.lyricsText ? "FOUND" : "NULL"));
+    print("[DBG] lyricsText2: " + (script.lyricsText2 ? "FOUND" : "NULL"));
 
     // Auto-detect Audio Component if not assigned
     if (!script.audioComponent) {
@@ -191,6 +239,9 @@ function init() {
     if (!screenTf && script.lyricsText) {
         screenTf = script.lyricsText.getSceneObject().getComponent("Component.ScreenTransform");
     }
+    if (!screenTf && script.lyricsText2) {
+        screenTf = script.lyricsText2.getSceneObject().getComponent("Component.ScreenTransform");
+    }
     print("[DBG] screenTransform: " + (screenTf ? "FOUND" : "NULL (pop animation disabled)"));
 
     if (screenTf) {
@@ -201,11 +252,26 @@ function init() {
         }
     }
 
-    // Clear initial text & opacity
-    if (script.lyricsText) {
-        script.lyricsText.text = "";
-        applyVisuals(0.0, 1.0);
+    // Ensure lyrics button starts disabled until the first lyric appears
+    if (script.lyricsBtn) {
+        script.lyricsBtn.enabled = false;
     }
+
+    // Set default initial button texture
+    updateLyricsBtnTexture();
+
+    // Hook up InteractionComponent or tap fallback
+    if (script.lyricsInteraction) {
+        if (script.lyricsInteraction.onTap) {
+            script.lyricsInteraction.onTap.add(onToggleLyrics);
+        } else if (script.lyricsInteraction.onTouchEnd) {
+            script.lyricsInteraction.onTouchEnd.add(onToggleLyrics);
+        }
+    }
+
+    // Clear initial text & opacity
+    setLyricsText("");
+    applyVisuals(0.0, 1.0);
 
     startPlayback();
 }
@@ -231,6 +297,28 @@ function startPlayback() {
     }
 }
 
+function applyTextVisuals(txtComp, alpha) {
+    if (!txtComp) return;
+
+    if (txtComp.textFill) {
+        var baseA = script.baseColor ? script.baseColor.w : 1.0;
+        var r = script.baseColor ? script.baseColor.x : 1.0;
+        var g = script.baseColor ? script.baseColor.y : 1.0;
+        var b = script.baseColor ? script.baseColor.z : 1.0;
+        txtComp.textFill.color = new vec4(r, g, b, baseA * alpha);
+    } else {
+        txtComp.enabled = (alpha > 0.01);
+    }
+
+    if (txtComp.outlineSettings && txtComp.outlineSettings.fill) {
+        var outA = script.outlineColor ? script.outlineColor.w : 1.0;
+        var or = script.outlineColor ? script.outlineColor.x : 0.0;
+        var og = script.outlineColor ? script.outlineColor.y : 0.0;
+        var ob = script.outlineColor ? script.outlineColor.z : 0.0;
+        txtComp.outlineSettings.fill.color = new vec4(or, og, ob, outA * alpha);
+    }
+}
+
 // Apply text alpha and pop scale
 function applyVisuals(alpha, scaleFactor) {
     alpha = clamp(alpha, 0.0, 1.0);
@@ -238,30 +326,11 @@ function applyVisuals(alpha, scaleFactor) {
     // Debug: log alpha changes
     if (script.debugMode && Math.abs(alpha - lastDebugAlpha) > 0.05) {
         lastDebugAlpha = alpha;
-        print("[DBG] applyVisuals alpha=" + alpha.toFixed(2) + " scale=" + scaleFactor.toFixed(2)
-            + " | textFill=" + (script.lyricsText && script.lyricsText.textFill ? "OK" : "NULL"));
+        print("[DBG] applyVisuals alpha=" + alpha.toFixed(2) + " scale=" + scaleFactor.toFixed(2));
     }
 
-    if (script.lyricsText && script.lyricsText.textFill) {
-        var baseA = script.baseColor ? script.baseColor.w : 1.0;
-        var r = script.baseColor ? script.baseColor.x : 1.0;
-        var g = script.baseColor ? script.baseColor.y : 1.0;
-        var b = script.baseColor ? script.baseColor.z : 1.0;
-        script.lyricsText.textFill.color = new vec4(r, g, b, baseA * alpha);
-    } else if (script.lyricsText) {
-        // Fallback: textFill not available, ensure Text component itself is enabled
-        print("[DBG] WARNING: textFill is null! Trying to keep text enabled.");
-        script.lyricsText.enabled = (alpha > 0.01);
-    }
-
-    // Apply color alpha to Outline if present
-    if (script.lyricsText && script.lyricsText.outlineSettings && script.lyricsText.outlineSettings.fill) {
-        var outA = script.outlineColor ? script.outlineColor.w : 1.0;
-        var or = script.outlineColor ? script.outlineColor.x : 0.0;
-        var og = script.outlineColor ? script.outlineColor.y : 0.0;
-        var ob = script.outlineColor ? script.outlineColor.z : 0.0;
-        script.lyricsText.outlineSettings.fill.color = new vec4(or, og, ob, outA * alpha);
-    }
+    applyTextVisuals(script.lyricsText, alpha);
+    applyTextVisuals(script.lyricsText2, alpha);
 
     // Apply pop scale transform
     if (script.enablePopAnimation && targetTransform) {
@@ -287,7 +356,7 @@ function onUpdate() {
     // Loop reset
     if (script.totalLoopDuration > 0.0 && audioPosition >= script.totalLoopDuration && !isRestarting) {
         isRestarting = true;
-        if (script.lyricsText) script.lyricsText.text = "";
+        setLyricsText("");
         applyVisuals(0.0, 1.0);
         startPlayback();
         return;
@@ -307,15 +376,29 @@ function onUpdate() {
         }
     }
 
+    // Enable lyrics button early by buttonLeadTime (default 1.0s) before the first lyric appears
+    var leadTime = (script.buttonLeadTime !== undefined) ? script.buttonLeadTime : 1.0;
+    if (!hasEnabledLyricsBtn && loopTime >= (lyricsData[0].start - leadTime)) {
+        hasEnabledLyricsBtn = true;
+        if (script.lyricsBtn) {
+            script.lyricsBtn.enabled = true;
+        }
+    }
+
+    // If lyrics are toggled OFF by the user, don't show text
+    if (!areLyricsEnabled) {
+        setLyricsText("");
+        applyVisuals(0.0, 1.0);
+        return;
+    }
+
     if (activeLyric) {
         // Change text string when moving to a new lyric line
         if (currentLyricIndex !== activeIndex) {
             currentLyricIndex = activeIndex;
-            if (script.lyricsText) {
-                script.lyricsText.text = activeLyric.text;
-                if (script.debugMode) {
-                    print("[DBG] LYRIC #" + activeIndex + " at t=" + audioPosition.toFixed(2) + "s -> \"" + activeLyric.text.replace(/\n/g, " ") + "\"");
-                }
+            setLyricsText(activeLyric.text);
+            if (script.debugMode) {
+                print("[DBG] LYRIC #" + activeIndex + " at t=" + audioPosition.toFixed(2) + "s -> \"" + activeLyric.text + "\"");
             }
         }
 
@@ -357,9 +440,7 @@ function onUpdate() {
     } else {
         // Between lyrics or after all lyrics before loop restart
         currentLyricIndex = -1;
-        if (script.lyricsText) {
-            script.lyricsText.text = "";
-        }
+        setLyricsText("");
         applyVisuals(0.0, 1.0);
     }
 }

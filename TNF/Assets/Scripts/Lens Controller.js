@@ -8,6 +8,7 @@
 // @ui {"widget":"group_start", "label":"Face Segmentation Mask"}
 // @input Component.Camera segmentedCamera {"label":"Segmented Camera"}
 // @input Asset.Texture segmentedTexture {"label":"Mask Texture"}
+// @input SceneObject alternativeLogo
 // @ui {"widget":"group_end"}
 
 // @ui {"widget":"separator"}
@@ -42,7 +43,9 @@ function updateCameraObjects(isFront) {
 }
 
 function updateSegmentationMask() {
-    script.segmentedCamera.maskTexture = (isFrontCamera && isFaceFound) ? script.segmentedTexture : null;
+    var hasMask = isFrontCamera && isFaceFound;
+    script.segmentedCamera.maskTexture = hasMask ? script.segmentedTexture : null;
+    script.alternativeLogo.enabled = !hasMask;
 }
 
 function onCameraFront() {
