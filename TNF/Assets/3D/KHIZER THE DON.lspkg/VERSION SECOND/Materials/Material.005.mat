@@ -35,6 +35,9 @@
     - normalTexUV 0
     - opacityTexUV 0
     - rimColorTexUV 0
+    - NODE_38_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_221_DROPLIST_ITEM 0
   BlendMode: Disabled
   Properties:
     PreviewEnabled:

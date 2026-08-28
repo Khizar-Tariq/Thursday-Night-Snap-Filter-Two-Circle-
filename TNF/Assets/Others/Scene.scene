@@ -2,12 +2,12 @@
   PackagePath: ""
   objects:
     - !<own> a27e354b-6fff-44cd-9d75-51b75ac0eced
+    - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> d2724f38-ff12-4dad-acc4-8d416f07ac36
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> e2368388-a807-4b70-b20f-2b4b68085bdb
     - !<own> 7dc93b86-5ddd-4a06-bf0d-b3174c57c7da
     - !<own> e493a24c-e636-4ba7-b943-cf19ea5c2e2c
-    - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> a0a993cf-94bc-4550-9d94-e053de879f89
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
@@ -112,7 +112,7 @@
   Enabled: true
   renderLayer: 1310719
   LightType: Directional
-  Intensity: 1.000000
+  Intensity: 1.200000
   ShadowDensity: 0.440000
   ShadowBlurRadius: 4.000000
   ShadowTextureSize: 512
@@ -172,7 +172,7 @@
   UseEnvMapFromCamera: false
   EnvMapFromCameraMode: Auto
   EstimationSharpness: 1.000000
-  EnvMapExposure: 1.000000
+  EnvMapExposure: 1.400000
   EnvMapRotation: 0.000000
   DiffuseEnvTexture: !<reference> 2013a19b-93c1-4f21-b7ea-876a33550c7b
   SpecularEnvTexture: !<reference> d795fd46-e16b-4cb9-8dfb-4ef227298f7a
@@ -956,9 +956,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 19.000000, z: 0.000000}
+    Position: {x: 0.000000, y: 18.000000, z: 1.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 0.170000, y: 0.170000, z: 0.170000}
+    Scale: {x: 0.160000, y: 0.160000, z: 0.160000}
     HasSegmentScaleCompensation: false
   Children:
     - !<own> c90c0c00-7a54-4533-a9b9-e0e1bbf26c83
@@ -1048,7 +1048,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera Live only
-  Enabled: false
+  Enabled: true
   Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -1117,7 +1117,7 @@
   PrefabRemaps:
     []
   Name: Screen Transform
-  Enabled: true
+  Enabled: false
   IsAdvanced: false
   Constraints:
     pinToLeft: false
@@ -1140,8 +1140,8 @@
   Anchor:
     left: -2.062379
     bottom: -0.767838
-    right: -1.770007
-    top: -0.521952
+    right: -1.821631
+    top: -0.566221
   Offset:
     left: 0.000000
     bottom: 0.000000
@@ -1485,7 +1485,7 @@
       endRotation: !<float> 0.000000
       endAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
       endAnchorsSize: !<Vec2> {x: 2.000000, y: 2.000000}
-      endAnchorsCenter: !<Vec2> {x: -0.860000, y: -0.500000}
+      endAnchorsCenter: !<Vec2> {x: -0.885000, y: -0.500000}
       endOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
       endOffsetsSize: !<Vec2> {x: 2.000000, y: 2.000000}
       endOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
@@ -1646,7 +1646,7 @@
   PrefabRemaps:
     []
   Name: Scripts
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2304,7 +2304,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera Segmented
-  Enabled: false
+  Enabled: true
   Layers: 2
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -2553,7 +2553,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera
-  Enabled: false
+  Enabled: true
   Layers: 1048576
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -2573,7 +2573,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera Capture only
-  Enabled: false
+  Enabled: true
   Layers: 8
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
