@@ -49,6 +49,7 @@
     popExitScale: false
     popPeakScale: false
     popStartScale: false
+    spotLight: false
     timeOffset: false
     totalLoopDuration: false
   ScriptTypesHidden:
@@ -83,6 +84,7 @@
       lyricsOn: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       lyricsOff: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       buttonLeadTime: !<float> 1.000000
+      spotLight: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

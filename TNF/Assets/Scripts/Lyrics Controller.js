@@ -34,6 +34,8 @@
 // @input float buttonLeadTime = 1.0 {"label":"Button Lead Time (sec)"}
 // @ui {"widget":"group_end"}
 
+// @input SceneObject spotLight
+
 /**
  * Hard-coded lyrics data for Lens Studio
  * Clean 2-line formatted text with exact 30fps timestamps
@@ -382,6 +384,7 @@ function onUpdate() {
         hasEnabledLyricsBtn = true;
         if (script.lyricsBtn) {
             script.lyricsBtn.enabled = true;
+            global.tweenManager.startTween(script.spotLight, "Turn On");
         }
     }
 

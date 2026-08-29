@@ -40,11 +40,11 @@
 // ─────────────────────────────────────────────────────────────
 //  Runtime state
 // ─────────────────────────────────────────────────────────────
-var podSTs        = [];   // ScreenTransform per valid pod
-var podHalfW      = [];   // cached half-width of anchor rect
-var podHalfH      = [];   // cached half-height of anchor rect
+var podSTs = [];   // ScreenTransform per valid pod
+var podHalfW = [];   // cached half-width of anchor rect
+var podHalfH = [];   // cached half-height of anchor rect
 var podBaseAngles = [];   // pre-computed base angle per pod (radians)
-var currentAngle  = 0.0;  // master spinning offset
+var currentAngle = 0.0;  // master spinning offset
 
 var DEG2RAD = Math.PI / 180.0;
 var FALLBACK_HALF = 0.05; // anchor half-size fallback if pod rect is zero
@@ -73,9 +73,9 @@ function getOrbitCenter() {
 //  Guarantees stepDeg is always based on exactly the pods placed.
 // ─────────────────────────────────────────────────────────────
 function gatherPods() {
-    podSTs        = [];
-    podHalfW      = [];
-    podHalfH      = [];
+    podSTs = [];
+    podHalfW = [];
+    podHalfH = [];
     podBaseAngles = [];
 
     var podInputs = script.pods;
@@ -85,7 +85,7 @@ function gatherPods() {
     }
 
     // --- Pass 1: collect every valid pod into a temp list ---
-    var validSTs  = [];
+    var validSTs = [];
     var validObjs = [];
     for (var k = 0; k < podInputs.length; k++) {
         if (!podInputs[k]) {
@@ -118,9 +118,9 @@ function gatherPods() {
         var angleDeg = script.startAngle - stepDeg * j;   // clockwise
         podBaseAngles.push(angleDeg * DEG2RAD);
 
-        var a  = validSTs[j].anchors;
-        var hw = (a.right - a.left)   * 0.5;
-        var hh = (a.top   - a.bottom) * 0.5;
+        var a = validSTs[j].anchors;
+        var hw = (a.right - a.left) * 0.5;
+        var hh = (a.top - a.bottom) * 0.5;
         if (hw < 0.001) hw = FALLBACK_HALF;
         if (hh < 0.001) hh = FALLBACK_HALF;
 
@@ -158,7 +158,7 @@ function onUpdate() {
     currentAngle += (script.rotationSpeed * DEG2RAD) * getDeltaTime();
 
     var center = getOrbitCenter();
-    var r      = script.orbitRadius;
+    var r = script.orbitRadius;
 
     // Aspect ratio fix:
     //   Screen is portrait so 1 unit X ≠ 1 unit Y in pixels.
@@ -166,13 +166,13 @@ function onUpdate() {
     var xScale = (script.aspectRatio > 0.001) ? (1.0 / script.aspectRatio) : 1.0;
 
     for (var i = 0; i < podSTs.length; i++) {
-        var st    = podSTs[i];
+        var st = podSTs[i];
         if (!st) continue;
 
         var angle = podBaseAngles[i] + currentAngle;
 
         var cx = center.x + r * xScale * Math.cos(angle);
-        var cy = center.y + r          * Math.sin(angle);
+        var cy = center.y + r * Math.sin(angle);
 
         var hw = podHalfW[i];
         var hh = podHalfH[i];
@@ -184,10 +184,10 @@ function onUpdate() {
         var anchorCenterY = cy - script.pivotY * hh;
 
         // Must set Rect properties individually — vec4 assignment silently fails in Lens Studio
-        st.anchors.left   = cx - hw;
-        st.anchors.right  = cx + hw;
+        st.anchors.left = cx - hw;
+        st.anchors.right = cx + hw;
         st.anchors.bottom = anchorCenterY - hh;
-        st.anchors.top    = anchorCenterY + hh;
+        st.anchors.top = anchorCenterY + hh;
     }
 
     // ── Rotate the wheel graphic ──────────────────────────────────
@@ -201,12 +201,12 @@ function onUpdate() {
     }
 
     if (script.debugMode) {
-        var a0  = podBaseAngles[0] + currentAngle;
+        var a0 = podBaseAngles[0] + currentAngle;
         var c0x = center.x + r * xScale * Math.cos(a0);
-        var c0y = center.y + r           * Math.sin(a0);
+        var c0y = center.y + r * Math.sin(a0);
         var offScreen = (Math.abs(c0x) > 1.5 || Math.abs(c0y) > 1.5);
         var msg = "[WC] Pod0 cx=" + c0x.toFixed(3) + " cy=" + c0y.toFixed(3)
-                + "  wheel-rot=" + (currentAngle / DEG2RAD).toFixed(1) + "deg";
+            + "  wheel-rot=" + (currentAngle / DEG2RAD).toFixed(1) + "deg";
         if (offScreen) msg += "  *** RADIUS TOO LARGE — reduce Orbit Radius! ***";
         print(msg);
     }
