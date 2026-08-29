@@ -1,0 +1,61 @@
+- !<AssetImportMetadata/0909f1ec-5df4-4105-9de2-aebafc991287>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 725bea29-5e46-413b-8e3e-727a3705f0e8
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 725bea29-5e46-413b-8e3e-727a3705f0e8
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 68419d01-fe30-45d2-9934-d8948af5db5a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/68419d01-fe30-45d2-9934-d8948af5db5a>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 9bb25bbd-ab1f-4b20-98c4-fb70a228271e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    aspectRatio: false
+    debugMode: false
+    orbitPivot: false
+    orbitRadius: false
+    pivotY: false
+    pods: false
+    rotationSpeed: false
+    startAngle: false
+    wheelObject: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - wheelObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      orbitPivot: !<reference.ScreenTransform> 00000000-0000-0000-0000-000000000000
+      pods: !<reference.SceneObject[]>
+        []
+      orbitRadius: !<float> 150.000000
+      rotationSpeed: !<float> 30.000000
+      startAngle: !<float> 90.000000
+      pivotY: !<float> 1.000000
+      aspectRatio: 0.562500
+      debugMode: false
+  ScriptTypes:
+    -
+      {}
