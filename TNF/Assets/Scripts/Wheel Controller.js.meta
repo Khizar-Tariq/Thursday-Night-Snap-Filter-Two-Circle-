@@ -29,6 +29,7 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     aspectRatio: false
+    autoPlacement: false
     debugMode: false
     orbitPivot: false
     orbitRadius: false
@@ -36,6 +37,8 @@
     pods: false
     rotationSpeed: false
     startAngle: false
+    wheelLights1: false
+    wheelLights2: false
     wheelObject: false
   ScriptTypesHidden:
     {}
@@ -47,9 +50,12 @@
     []
   DefaultScriptInputs:
     - wheelObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      wheelLights1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      wheelLights2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       orbitPivot: !<reference.ScreenTransform> 00000000-0000-0000-0000-000000000000
       pods: !<reference.SceneObject[]>
         []
+      autoPlacement: true
       orbitRadius: !<float> 150.000000
       rotationSpeed: !<float> 30.000000
       startAngle: !<float> 90.000000

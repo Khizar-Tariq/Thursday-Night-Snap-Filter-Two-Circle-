@@ -13,7 +13,9 @@
 // ============================================================
 
 // --- Wheel image SceneObject (spins in sync with pod orbit) ---
-// @input SceneObject wheelObject {"label":"Wheel SceneObject (auto-rotated)"}
+// @input SceneObject wheelObject  {"label":"Wheel SceneObject (auto-rotated)"}
+// @input SceneObject wheelLights1 {"label":"Wheel Lights 1 (auto-rotated)"}
+// @input SceneObject wheelLights2 {"label":"Wheel Lights 2 (auto-rotated)"}
 
 // --- Orbit centre ---
 // @input Component.ScreenTransform orbitPivot {"label":"Orbit Pivot (empty ST at wheel centre)"}
@@ -21,11 +23,14 @@
 // --- Pods ---
 // @input SceneObject[] pods {"label":"Pods  (drag any number, evenly spaced)"}
 
+// --- Placement mode ---
+// @input bool autoPlacement = true {"label":"Auto Placement  (OFF = use your manual pod positions)"}
+
 // --- Orbit settings ---
 // @ui {"widget":"group_start", "label":"Orbit Settings"}
 // @input float orbitRadius   = 0.35  {"label":"Orbit Radius  (1.0 = half screen height)", "widget":"slider", "min":0.01, "max":1.0, "step":0.005}
 // @input float rotationSpeed = 30.0  {"label":"Rotation Speed (deg/sec)", "widget":"slider", "min":-360.0, "max":360.0, "step":1.0}
-// @input float startAngle    = 90.0  {"label":"First Pod Angle (deg)  90=top  0=right", "widget":"slider", "min":-360.0, "max":360.0, "step":1.0}
+// @input float startAngle    = 90.0  {"label":"[Auto only] First Pod Angle (deg)  90=top  0=right", "widget":"slider", "min":-360.0, "max":360.0, "step":1.0}
 // @input float pivotY        = 1.0   {"label":"Pivot Y  1=top-on-circle(hangs down)  0=centre  -1=bottom-on-circle", "widget":"slider", "min":-1.0, "max":1.0, "step":0.05}
 // @ui {"widget":"group_end"}
 
@@ -111,29 +116,61 @@ function gatherPods() {
         return;
     }
 
-    // --- Pass 2: stepDeg computed from EXACT same N, assign angles & cache sizes ---
-    var stepDeg = 360.0 / N;   // always matches placed count — no gap possible
+    // --- Pass 2: assign base angles ---
+    if (script.autoPlacement) {
+        // AUTO: evenly distribute pods starting from startAngle, clockwise
+        var stepDeg = 360.0 / N;
+        for (var j = 0; j < N; j++) {
+            var angleDeg = script.startAngle - stepDeg * j;
+            podBaseAngles.push(angleDeg * DEG2RAD);
+            if (script.debugMode) print("[WheelController] [Auto] Pod[" + j + "] angle=" + angleDeg.toFixed(2) + "°");
+        }
+        print("[WheelController] AUTO placement: " + N + " pod(s). Step = " + stepDeg.toFixed(4) + "° each.");
+    } else {
+        // MANUAL: read each pod's current editor position to derive its base angle.
+        // The pod orbits from wherever it already is — no repositioning on start.
+        var pivot = getOrbitCenter();
+        var xScale = (script.aspectRatio > 0.001) ? (1.0 / script.aspectRatio) : 1.0;
 
+        for (var m = 0; m < N; m++) {
+            var a   = validSTs[m].anchors;
+            var hh  = (a.top   - a.bottom) * 0.5;
+            if (hh < 0.001) hh = FALLBACK_HALF;
+
+            // Recover the orbit-circle point from the anchor rect.
+            // (Reverse the pivotY offset applied during onUpdate.)
+            var anchorCx = (a.left + a.right)   * 0.5;
+            var anchorCy = (a.bottom + a.top)    * 0.5;
+            var orbitPtX = anchorCx;                          // X: no pivot offset
+            var orbitPtY = anchorCy + script.pivotY * hh;     // Y: reverse pivotY shift
+
+            // Compute angle from pivot to orbit point,
+            // un-doing the xScale so atan2 gives the true circle angle
+            var dx = (orbitPtX - pivot.x) / xScale;
+            var dy =  orbitPtY - pivot.y;
+            var baseAngle = Math.atan2(dy, dx);
+            podBaseAngles.push(baseAngle);
+
+            if (script.debugMode) {
+                print("[WheelController] [Manual] Pod[" + m + "] derived angle=" + (baseAngle / DEG2RAD).toFixed(2) + "°");
+            }
+        }
+        print("[WheelController] MANUAL placement: " + N + " pod(s). Angles derived from editor positions.");
+    }
+
+    // --- Pass 3: cache anchor half-sizes for each valid pod ---
     for (var j = 0; j < N; j++) {
-        var angleDeg = script.startAngle - stepDeg * j;   // clockwise
-        podBaseAngles.push(angleDeg * DEG2RAD);
-
-        var a = validSTs[j].anchors;
-        var hw = (a.right - a.left) * 0.5;
-        var hh = (a.top - a.bottom) * 0.5;
+        var a  = validSTs[j].anchors;
+        var hw = (a.right - a.left)   * 0.5;
+        var hh = (a.top   - a.bottom) * 0.5;
         if (hw < 0.001) hw = FALLBACK_HALF;
         if (hh < 0.001) hh = FALLBACK_HALF;
 
         podSTs.push(validSTs[j]);
         podHalfW.push(hw);
         podHalfH.push(hh);
-
-        if (script.debugMode) {
-            print("[WheelController] Pod[" + j + "] angle=" + angleDeg.toFixed(2) + "°");
-        }
     }
 
-    print("[WheelController] " + N + " pod(s) placed. Step = " + stepDeg.toFixed(4) + "° each. Total arc = " + (stepDeg * N).toFixed(1) + "°");
     if (script.debugMode) {
         print("[WheelController] Radius=" + script.orbitRadius + "  AR=" + script.aspectRatio);
         var pc = getOrbitCenter();
@@ -190,15 +227,12 @@ function onUpdate() {
         st.anchors.top = anchorCenterY + hh;
     }
 
-    // ── Rotate the wheel graphic ──────────────────────────────────
-    // Same currentAngle drives both pods AND the wheel image,
-    // so they are always perfectly in sync — no drift ever.
-    if (script.wheelObject) {
-        var wheelTf = script.wheelObject.getTransform();
-        // Z rotation = spin in screen plane
-        // fromEulerAngles(x, y, z) takes RADIANS in Lens Studio
-        wheelTf.setLocalRotation(quat.fromEulerAngles(0, 0, currentAngle));
-    }
+    // ── Rotate wheel + lights ──────────────────────────────────────────
+    // All three share the same currentAngle — perfectly in sync.
+    var wheelRot = quat.fromEulerAngles(0, 0, currentAngle);
+    if (script.wheelObject)  script.wheelObject.getTransform().setLocalRotation(wheelRot);
+    if (script.wheelLights1) script.wheelLights1.getTransform().setLocalRotation(wheelRot);
+    if (script.wheelLights2) script.wheelLights2.getTransform().setLocalRotation(wheelRot);
 
     if (script.debugMode) {
         var a0 = podBaseAngles[0] + currentAngle;
