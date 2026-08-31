@@ -1393,7 +1393,7 @@
       lyricsText: !<reference.Text> a7f96385-7ab4-46c7-8629-14cb66badf09
       lyricsText2: !<reference.Text> 8b371049-4683-4bb6-a523-248ab4d4563f
       lyricsScreenTransform: !<reference.ScreenTransform> 1f8c6529-33b6-4594-9866-903812b43516
-      totalLoopDuration: !<float> 184.000000
+      totalLoopDuration: !<float> 29.000000
       timeOffset: !<float> 0.000000
       fadeInDuration: 0.350000
       fadeOutDuration: 0.350000
