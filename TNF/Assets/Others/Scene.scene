@@ -263,6 +263,77 @@
     []
   Components:
     - !<own> 18491b71-0df0-4c72-aa91-418efde944fe
+- !<ScriptComponent/0a99036b-bd6c-463d-aea4-cadadb8c6363>
+  PrefabRemaps:
+    []
+  Name: TweenScreenTransform
+  Enabled: true
+  ScriptAsset: !<reference> a8572a73-2abe-4a99-8b4e-7f2957ac4ef1
+  ScriptInputsDefault:
+    sceneObjectReference: true
+    loopType: true
+    type: true
+    movementType: true
+    anchorsParam: true
+    offsetsParam: true
+    startScale: true
+    startRotation: true
+    startAnchorsBounds: true
+    startAnchorsSize: true
+    startAnchorsCenter: true
+    startOffsetsBounds: true
+    startOffsetsSize: true
+    startOffsetsCenter: true
+    endPosition: true
+    endScale: true
+    endRotation: true
+    endAnchorsBounds: true
+    endAnchorsSize: true
+    endAnchorsCenter: true
+    endOffsetsBounds: true
+    endOffsetsSize: true
+    endOffsetsCenter: true
+    additive: true
+    delay: true
+    easingType: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      sceneObjectReference: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      tweenName: Move Down
+      playAutomatically: false
+      loopType: 0
+      type: 0
+      movementType: 0
+      anchorsParam: 0
+      offsetsParam: 0
+      startPosition: !<Vec3> {x: 0.000000, y: 4000.000000, z: 0.000000}
+      startScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      startRotation: !<float> 0.000000
+      startAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      startAnchorsSize: !<Vec2> {x: 1.000000, y: 1.000000}
+      startAnchorsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      startOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      startOffsetsSize: !<Vec2> {x: 1.000000, y: 1.000000}
+      startOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      endPosition: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      endScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      endRotation: !<float> 0.000000
+      endAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      endAnchorsSize: !<Vec2> {x: 2.000000, y: 2.000000}
+      endAnchorsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      endOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      endOffsetsSize: !<Vec2> {x: 2.000000, y: 2.000000}
+      endOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      additive: false
+      time: 1.500000
+      delay: !<float> 0.000000
+      easingFunction: Circular
+      easingType: Out
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/0d8613ca-e98d-4a04-a196-e3260aaf3a6a>
   PrefabRemaps:
     []
@@ -2723,7 +2794,6 @@
     additive: true
     recursive: true
     time: true
-    delay: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2741,7 +2811,7 @@
       additive: false
       recursive: false
       time: !<float> 1.000000
-      delay: !<float> 0.000000
+      delay: 0.100000
       easingFunction: Linear
       easingType: InOut
   ScriptTypes:
@@ -3770,7 +3840,7 @@
   PrefabRemaps:
     []
   Name: Spotlight
-  Enabled: true
+  Enabled: false
   Layers: 1048576
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -3783,6 +3853,7 @@
     - !<own> 58f6baf2-7df8-45a5-93cf-efa37594481e
     - !<own> 7eaf4fa3-ec38-4a10-9c89-a9f5b62b5071
     - !<own> a67efcff-ee75-4363-91e5-9229c63aa53e
+    - !<own> 0a99036b-bd6c-463d-aea4-cadadb8c6363
 - !<RenderMeshVisual/d1a172c3-9bb7-4efe-9386-81534fa25459>
   PrefabRemaps:
     []

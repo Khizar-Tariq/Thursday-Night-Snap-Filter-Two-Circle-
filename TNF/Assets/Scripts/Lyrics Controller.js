@@ -385,6 +385,7 @@ function onUpdate() {
         if (script.lyricsBtn) {
             script.lyricsBtn.enabled = true;
             global.tweenManager.startTween(script.spotLight, "Turn On");
+            global.tweenManager.startTween(script.spotLight, "Move Down");
         }
     }
 
