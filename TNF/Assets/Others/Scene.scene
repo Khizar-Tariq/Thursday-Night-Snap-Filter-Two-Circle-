@@ -35,12 +35,12 @@
   Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 40.000000}
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> d137be56-ca71-48c8-a8ac-2e8fd992254f
+    - !<own> cda1245f-d43b-4916-8b64-35b77dd509e7
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
 - !<Camera/00000000-0000-0065-0000-000000000065>
@@ -184,6 +184,23 @@
   FalloffType: None
   FalloffRange: .inf
   ShadowType: None
+- !<Head/01305b8f-8be7-4627-bf91-1b4df6be25e1>
+  PrefabRemaps:
+    []
+  Name: Head Binding
+  Enabled: true
+  AttachmentPointType: HeadCenter
+  FaceIndex: 0
+  AttachedBarycentricVertex:
+    indices:
+      - 0
+      - 0
+      - 0
+    weights:
+      - 0.000000
+      - 0.000000
+      - 0.000000
+  TrackingScope: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/037c6453-114e-4d84-9169-9b57f8a0fee9>
   PrefabRemaps:
     []
@@ -288,7 +305,7 @@
     []
   Name: component_1
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -411,7 +428,7 @@
     []
   Name: component_4
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -694,6 +711,26 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<RenderMeshVisual/1f84a5dc-95a4-4c78-a7e0-02cbb0249f61>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 3
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b3cf552c-c933-487e-9669-9ff34d03fadc
+  Mesh: !<reference> 06292f78-60ca-4fe1-833f-b6b85ca9bbcc
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<ScreenTransform/1f8c6529-33b6-4594-9866-903812b43516>
   PrefabRemaps:
     []
@@ -767,7 +804,7 @@
     []
   Name: component_0
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -782,21 +819,6 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/26108d1e-98b2-416b-8453-53f183f8d600>
-  PrefabRemaps:
-    []
-  Name: Face Occluder
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 7.330000, z: 8.740000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 0.830000, y: 0.830000, z: 0.830000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 3d8fcda7-89ef-4d81-aca4-a7ee34501518
 - !<SceneObject/29bad7fa-1fdc-4267-a57a-b3f0e26b3d68>
   PrefabRemaps:
     []
@@ -1129,26 +1151,21 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
-- !<RenderMeshVisual/3d8fcda7-89ef-4d81-aca4-a7ee34501518>
+- !<SceneObject/3e7cc4e6-e639-4fac-a158-47faa373e909>
   PrefabRemaps:
     []
-  Name: Render Mesh Visual
+  Name: Head Mesh
   Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 83f5a694-3f97-49d1-b5d0-24ad8b02b604
-  Mesh: !<reference> 1ee7e116-c461-4454-a8f3-7f827921e327
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1f84a5dc-95a4-4c78-a7e0-02cbb0249f61
 - !<Image/47a1f246-11ac-4bf4-a072-9498ee6ad38d>
   PrefabRemaps:
     []
@@ -1615,7 +1632,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 19.000000, z: 1.500000}
+    Position: {x: 0.500000, y: 18.000000, z: 2.700000}
     Rotation: {x: 5.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 0.160000, y: 0.160000, z: 0.160000}
     HasSegmentScaleCompensation: false
@@ -1663,6 +1680,22 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/723d75a8-5cd9-4c30-b11e-e393015a5b4b>
+  PrefabRemaps:
+    []
+  Name: Head Binding
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3e7cc4e6-e639-4fac-a158-47faa373e909
+    - !<own> 6235d5c1-ad39-412c-a6e2-6b690b3901dc
+  Components:
+    - !<own> 01305b8f-8be7-4627-bf91-1b4df6be25e1
 - !<SceneObject/72d4d441-4fa8-4ec1-8c2a-2ea63f265d93>
   PrefabRemaps:
     []
@@ -2400,22 +2433,6 @@
   Components:
     - !<own> ff6aa34c-3468-4ec3-8fbe-82e322680c06
     - !<own> deb3d2b7-6a08-4afa-aaf6-499de0b921ee
-- !<SceneObject/95dcbd59-83b4-45c7-9291-0acda359566e>
-  PrefabRemaps:
-    []
-  Name: Head Binding
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 26108d1e-98b2-416b-8453-53f183f8d600
-    - !<own> 6235d5c1-ad39-412c-a6e2-6b690b3901dc
-  Components:
-    - !<own> a1c58602-8ddd-43db-95e8-e15510b376b9
 - !<Image/980ebb79-7091-4e7c-9cc3-978fea050eee>
   PrefabRemaps:
     []
@@ -2603,23 +2620,6 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
-- !<Head/a1c58602-8ddd-43db-95e8-e15510b376b9>
-  PrefabRemaps:
-    []
-  Name: Head Binding
-  Enabled: true
-  AttachmentPointType: HeadCenter
-  FaceIndex: 0
-  AttachedBarycentricVertex:
-    indices:
-      - 0
-      - 0
-      - 0
-    weights:
-      - 0.000000
-      - 0.000000
-      - 0.000000
-  TrackingScope: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/a27e354b-6fff-44cd-9d75-51b75ac0eced>
   PrefabRemaps:
     []
@@ -3321,7 +3321,7 @@
     []
   Name: component_3
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -3735,6 +3735,21 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<SceneObject/cda1245f-d43b-4916-8b64-35b77dd509e7>
+  PrefabRemaps:
+    []
+  Name: Effects
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 723d75a8-5cd9-4c30-b11e-e393015a5b4b
+  Components:
+    []
 - !<SceneObject/cdb10c0e-4e14-4310-91d2-b19626406eff>
   PrefabRemaps:
     []
@@ -3768,27 +3783,12 @@
     - !<own> 58f6baf2-7df8-45a5-93cf-efa37594481e
     - !<own> 7eaf4fa3-ec38-4a10-9c89-a9f5b62b5071
     - !<own> a67efcff-ee75-4363-91e5-9229c63aa53e
-- !<SceneObject/d137be56-ca71-48c8-a8ac-2e8fd992254f>
-  PrefabRemaps:
-    []
-  Name: Effects
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 95dcbd59-83b4-45c7-9291-0acda359566e
-  Components:
-    []
 - !<RenderMeshVisual/d1a172c3-9bb7-4efe-9386-81534fa25459>
   PrefabRemaps:
     []
   Name: component_2
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
