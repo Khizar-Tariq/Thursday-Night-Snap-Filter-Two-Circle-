@@ -3370,7 +3370,7 @@
   Enabled: true
   AudioTrack: !<reference> a8f498e4-2d81-4b58-8480-72869af3ff21
   EnableAutoplayLoop: false
-  Volume: 1.000000
+  Volume: 0.500000
   EnableMixToSnap: false
   RecordVolume: 1.000000
   EnableSpatialAudio: false
