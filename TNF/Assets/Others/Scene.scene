@@ -475,6 +475,7 @@
       delayTweenObject: !<reference.SceneObject> e8cb8ed9-65c9-4ca1-9464-367ed0d060f4
       fireWorksImage: !<reference.Image> 980ebb79-7091-4e7c-9cc3-978fea050eee
       fireWorksAudio: !<reference.AudioComponent> bccb61ea-e66c-43aa-ba23-515f15b3bb06
+      fireworksInterval: !<float> 15.000000
   ScriptTypes:
     "":
       {}
@@ -2835,7 +2836,7 @@
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   EnableRichText: false
   SizeToFit: false
-  FontSize: 30.000000
+  FontSize: 28.000000
   FontSource: !<reference> 0114b3fa-1311-4a09-b77c-3b73a39d3eb4
   PreferredStyle: Heavy Italic
   LayoutRect:

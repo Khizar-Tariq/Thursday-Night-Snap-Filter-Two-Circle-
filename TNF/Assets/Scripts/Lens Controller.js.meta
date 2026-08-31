@@ -33,6 +33,7 @@
     delayTweenObject: false
     fireWorksAudio: false
     fireWorksImage: false
+    fireworksInterval: false
     frontCameraObjects: false
     segmentedCamera: false
     segmentedTexture: false
@@ -55,6 +56,7 @@
       delayTweenObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       fireWorksImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
       fireWorksAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      fireworksInterval: !<float> 0.000000
   ScriptTypes:
     -
       {}
