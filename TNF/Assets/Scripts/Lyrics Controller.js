@@ -42,8 +42,8 @@
  */
 var lyricsData = [
     // --- Intro / Build-up ---
-    { start: 0.00, end: 1.95, text: "EVERY THURSDAY NIGHT" },
-    { start: 2.00, end: 3.85, text: "WE GON' LET 'EM KNOW" },
+    { start: 0.00, end: 2.1, text: "EVERY THURSDAY NIGHT" },
+    { start: 2.1, end: 3.85, text: "WE GON' LET 'EM KNOW" },
 
     // --- Chorus ---
     { start: 3.90, end: 5.40, text: "WHEN WE COME TO TOWN" },

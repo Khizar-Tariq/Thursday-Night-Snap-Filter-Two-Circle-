@@ -342,7 +342,6 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
-    prewarm: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -353,7 +352,6 @@
         - !<reference> c48ca64c-086c-44ad-87bf-13a9d8dc823d
       textureChangeSpeed: !<float> 1.000000
       loop: true
-      prewarm: true
   ScriptTypes:
     "":
       {}
@@ -2946,7 +2944,6 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
-    prewarm: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2961,7 +2958,6 @@
         - !<reference> cb7e1a7d-a95c-46f8-a842-ac1763cfc11d
       textureChangeSpeed: 0.500000
       loop: true
-      prewarm: true
   ScriptTypes:
     "":
       {}
@@ -4570,7 +4566,6 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
-    prewarm: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4581,7 +4576,6 @@
         - !<reference> 3bb3278a-f919-4a89-9fab-19c7561e7b4a
       textureChangeSpeed: 0.400000
       loop: true
-      prewarm: true
   ScriptTypes:
     "":
       {}
@@ -4593,7 +4587,6 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
-    prewarm: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4604,7 +4597,6 @@
         - !<reference> 498e1ffe-742f-4776-ac00-294f9fa3d96d
       textureChangeSpeed: 0.200000
       loop: true
-      prewarm: true
   ScriptTypes:
     "":
       {}

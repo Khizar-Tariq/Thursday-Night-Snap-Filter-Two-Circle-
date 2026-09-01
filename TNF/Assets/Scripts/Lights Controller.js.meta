@@ -30,7 +30,7 @@
   ScriptInputsHidden:
     lightsTexture: false
     loop: false
-    prewarm: false
+    preloadTextures: false
     textureChangeSpeed: false
     wheelLights: false
   ScriptTypesHidden:
@@ -47,7 +47,7 @@
         []
       textureChangeSpeed: !<float> 0.000000
       loop: true
-      prewarm: true
+      preloadTextures: true
   ScriptTypes:
     -
       {}
