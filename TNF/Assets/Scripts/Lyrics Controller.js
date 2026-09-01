@@ -42,8 +42,8 @@
  */
 var lyricsData = [
     // --- Intro / Build-up ---
-    { start: 0.00, end: 1.90, text: "EVERY THURSDAY NIGHT" },
-    { start: 1.90, end: 3.80, text: "WE GON' LET 'EM KNOW" },
+    { start: 0.00, end: 1.95, text: "EVERY THURSDAY NIGHT" },
+    { start: 2.00, end: 3.85, text: "WE GON' LET 'EM KNOW" },
 
     // --- Chorus ---
     { start: 3.90, end: 5.40, text: "WHEN WE COME TO TOWN" },
@@ -56,8 +56,8 @@ var lyricsData = [
     { start: 14.10, end: 15.70, text: "WE GON' LET 'EM KNOW" },
     { start: 15.80, end: 17.25, text: "WHEN WE COME TO TOWN" },
     { start: 17.25, end: 18.70, text: "WE GON' LET 'EM KNOW" },
-    { start: 18.80, end: 20.10, text: "EVERY SINGLE DOWN, WE" },
-    { start: 20.20, end: 21.35, text: "GON' LET 'EM KNOW" },
+    { start: 18.80, end: 20.10, text: "EVERY SINGLE DOWN" },
+    { start: 20.20, end: 21.35, text: "WE GON' LET 'EM KNOW" },
     { start: 21.47, end: 22.85, text: "DO EVERYTHING TO WIN" },
     { start: 22.85, end: 24.20, text: "AND SOMETHING'S GOTTA GIVE" },
     { start: 24.30, end: 25.85, text: "IF YOU DON'T KNOW WHAT IT IS" },
