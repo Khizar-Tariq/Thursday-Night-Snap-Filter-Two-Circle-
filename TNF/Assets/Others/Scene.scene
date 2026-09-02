@@ -1,6 +1,7 @@
 - !<Scene/0a1ccb1a-fe88-4fbb-9883-e3af3c75fd99>
   PackagePath: ""
   objects:
+    - !<own> 590c18dd-b303-4f75-aef8-ed0c3d161d5f
     - !<own> a27e354b-6fff-44cd-9d75-51b75ac0eced
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> d2724f38-ff12-4dad-acc4-8d416f07ac36
@@ -78,7 +79,7 @@
   PrefabRemaps:
     []
   Name: Lighting
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -342,6 +343,7 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
+    preloadTextures: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -352,6 +354,7 @@
         - !<reference> c48ca64c-086c-44ad-87bf-13a9d8dc823d
       textureChangeSpeed: !<float> 1.000000
       loop: true
+      preloadTextures: true
   ScriptTypes:
     "":
       {}
@@ -892,6 +895,30 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ScriptComponent/27d07959-eb7d-49bc-a993-272e42dae446>
+  PrefabRemaps:
+    []
+  Name: Lat Controller
+  Enabled: true
+  ScriptAsset: !<reference> 2f01f890-633f-4def-bd37-b02b7be81703
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      objectsElements: !<reference.SceneObject[]>
+        - !<reference> a27e354b-6fff-44cd-9d75-51b75ac0eced
+        - !<reference> 0005641c-028d-459a-0000-000000014b4d
+        - !<reference> d2724f38-ff12-4dad-acc4-8d416f07ac36
+        - !<reference> e2368388-a807-4b70-b20f-2b4b68085bdb
+        - !<reference> 7dc93b86-5ddd-4a06-bf0d-b3174c57c7da
+        - !<reference> e493a24c-e636-4ba7-b943-cf19ea5c2e2c
+        - !<reference> a0a993cf-94bc-4550-9d94-e053de879f89
+      delaytoEnable: 0.300000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/29bad7fa-1fdc-4267-a57a-b3f0e26b3d68>
   PrefabRemaps:
     []
@@ -1511,6 +1538,21 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<SceneObject/590c18dd-b303-4f75-aef8-ed0c3d161d5f>
+  PrefabRemaps:
+    []
+  Name: Lat Controller
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 27d07959-eb7d-49bc-a993-272e42dae446
 - !<ScreenTransform/5ab34774-54ff-4622-add4-8b5b9542399b>
   PrefabRemaps:
     []
@@ -1933,7 +1975,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera Live only
-  Enabled: true
+  Enabled: false
   Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -2646,7 +2688,7 @@
   PrefabRemaps:
     []
   Name: Sounds and Sfx
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2696,7 +2738,7 @@
   PrefabRemaps:
     []
   Name: Scripts
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2944,6 +2986,7 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
+    preloadTextures: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2958,6 +3001,7 @@
         - !<reference> cb7e1a7d-a95c-46f8-a842-ac1763cfc11d
       textureChangeSpeed: 0.500000
       loop: true
+      preloadTextures: true
   ScriptTypes:
     "":
       {}
@@ -3879,7 +3923,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera Segmented
-  Enabled: true
+  Enabled: false
   Layers: 2
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -4204,7 +4248,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera
-  Enabled: true
+  Enabled: false
   Layers: 1048576
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -4224,7 +4268,7 @@
   PrefabRemaps:
     []
   Name: Orthographic Camera Capture only
-  Enabled: true
+  Enabled: false
   Layers: 8
   LocalTransform: !<TransformEntity>
     Position: {x: -120.000000, y: 0.000000, z: 40.000000}
@@ -4566,6 +4610,7 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
+    preloadTextures: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4576,6 +4621,7 @@
         - !<reference> 3bb3278a-f919-4a89-9fab-19c7561e7b4a
       textureChangeSpeed: 0.400000
       loop: true
+      preloadTextures: true
   ScriptTypes:
     "":
       {}
@@ -4587,6 +4633,7 @@
   ScriptAsset: !<reference> 18865077-ef46-4ef0-bd15-ea666c23ad89
   ScriptInputsDefault:
     loop: true
+    preloadTextures: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4597,6 +4644,7 @@
         - !<reference> 498e1ffe-742f-4776-ac00-294f9fa3d96d
       textureChangeSpeed: 0.200000
       loop: true
+      preloadTextures: true
   ScriptTypes:
     "":
       {}
