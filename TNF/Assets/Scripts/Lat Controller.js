@@ -6,7 +6,7 @@
 
 function onStart() {
     for (var i = 0; i < script.objectsElements.length; i++) {
-        script.objectsElements[i].enabled = false;
+        //script.objectsElements[i].enabled = false;
     }
 
     var event = script.createEvent("DelayedCallbackEvent");
